@@ -41,7 +41,7 @@
     	
     	try {
     		String sCurrentLine;
-    		br = new BufferedReader(new FileReader("C:\\Users\\NTQuan\\workspace\\Coma\\xml\\schema"+id+".xml"));
+    		br = new BufferedReader(new FileReader("C:\\Users\\NTQuan\\workspace\\Coma3.0\\xml\\schema"+id+".xml"));
     	
     		while ((sCurrentLine = br.readLine()) != null) {
     			//out.println(sCurrentLine);

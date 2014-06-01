@@ -4,7 +4,7 @@
 <jsp:useBean id="coma" class="quan.coma.Coma" />
 <%@ page import="org.json.simple.JSONObject"%>
 <%!
-	public String path="C:\\Users\\NTQuan\\workspace\\Coma\\sources\\product.xsd";
+	public String path="C:\\Users\\NTQuan\\workspace\\Coma3.0\\sources\\product.xsd";
 	private static Document convertStringToDocument(String xmlStr) {
 	    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();  
 	    DocumentBuilder builder;  

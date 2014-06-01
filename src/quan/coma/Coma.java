@@ -24,7 +24,7 @@ import de.wdilab.coma.structure.Source;
 
 public class Coma {
 	
-	public static final String DIR="C:\\Users\\NTQuan\\workspace\\Coma\\";
+	public static final String DIR="C:\\Users\\NTQuan\\workspace\\Coma3.0\\";
 	public static final int MATCH_MAX_NUMBER=6;
 	
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
@@ -112,7 +112,7 @@ public class Coma {
 			ResultSet rs = stmt.executeQuery(sql);
 			
 			
-			System.out.println("\n\n\nList:\n\n\n");
+//			System.out.println("\n\n\nList:\n\n\n");
 			//get MATCH_MAX_NUMBER schema
 			while(rs.next()){
 				 int id  = rs.getInt("id");
