@@ -122,6 +122,7 @@ implements IAttributeObjectMatcher
 			throws MappingStoreException
 			{
 		log.info("Match Start 1.");
+		System.out.println("Threshold:"+this.threshold);
 		
 		//do something with left Object
 		ArrayList<ArrayList<Object>> aComps = new ArrayList<ArrayList<Object>>();
@@ -136,13 +137,13 @@ implements IAttributeObjectMatcher
 			idsLeft[(ind++)] = oi;
 			String value = oi.getStringValue(this.attrLinks);
 			
-			System.out.println("Original left:"+value);
+//			System.out.println("Original left:"+value);
 			this.tokenizer.reset(value);
 			String[] tokens = this.tokenizer.toArray();
 			ArrayList<Object> a = new ArrayList<Object>();
 			for (int i = 0; i < tokens.length; i++) {
 				String string_left = tokens[i];
-				System.out.println("Token"+i+ ":"+string_left);
+//				System.out.println("Token"+i+ ":"+string_left);
 				if (string_left != null)
 				{
 					if (!leftStrings.contains(string_left)) {
@@ -245,7 +246,7 @@ implements IAttributeObjectMatcher
 								if(sim < 0)
 									sim =0;
 							}
-							System.out.println("Chu y:"+left_string + " <-> "+ right_string+" : "+sim);  // Sample Output
+//							System.out.println("Chu y:"+left_string + " <-> "+ right_string+" : "+sim);  // Sample Output
 						}else{
 							//compute similarity of two element
 							sim = StringSimilarity.computeNGramSimilarity(
@@ -275,10 +276,11 @@ implements IAttributeObjectMatcher
 						}					
 						
 						//assign in to sim Array
-						if (sim > 0.0F)
+						if (sim > this.threshold)
 						{
 							simMatrix[left][right] = sim;
-						}
+						}else
+							continue;
 					}
 				}
 			}

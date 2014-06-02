@@ -6,7 +6,7 @@
 
 /* prev, next, prevPage and nextPage buttons */
 a.browse {
-    background:url(/Coma/png/hori_large.png) no-repeat;
+    background:url(/Coma3.0/png/hori_large.png) no-repeat;
     display:block;
     width:30px;
     height:30px;
@@ -29,7 +29,7 @@ a.left:active { background-position:-60px 0; }
 
 /* up and down */
 a.up, a.down  {
-    background:url(/Coma/png/vert_large.png) no-repeat;
+    background:url(/Coma3.0/png/vert_large.png) no-repeat;
     float: none;
     margin: 10px 50px;
 }

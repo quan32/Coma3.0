@@ -108,7 +108,7 @@ public class SimilarityMeasure{
 
 
 	  // 0.0f 0.01f 0.1f 0.2f 0.3f 0.4f 0.5f 0.6f
-		public static float DEFAULT_THRESHOLD = 0.01f; // default
+		public static float DEFAULT_THRESHOLD = 0.3f; // default
 	  
 		public static final Integer[] SIMMEASURE = {
 			SIM_VECT_FEATURES, SIM_DATATYPE, // SIM_STR_USERSYN,
