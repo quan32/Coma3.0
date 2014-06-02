@@ -293,14 +293,18 @@
              });
 
               $("#done").click(function(){
-                  $(".delete").hide();
-                  $(".extend_one").hide();
-                  $(".extend").hide();
-                  $(".extend_more").hide();
-                  $("input").css("disabled","disabled");
-                  $("#back").show();
-                  $("#search").show();
-                  $("#done").hide();
+            	  if($("#price").val()==""){
+            		  alert("Price field can't empty");
+            	  }else{
+            		  $(".delete").hide();
+                      $(".extend_one").hide();
+                      $(".extend").hide();
+                      $(".extend_more").hide();
+                      $("input").css("disabled","disabled");
+                      $("#back").show();
+                      $("#search").show();
+                      $("#done").hide();
+            	  }
               });
 
               $("#back").click(function(){
@@ -591,12 +595,12 @@
 		   <div id='mainContent'>
 			<fieldset>
 					<legend>
-						<input type='text' class='key' value="product" size='6'>
+						<input type='text' class='key' value="PRODUCT" size='6' disabled>
 					</legend>
 
 				
 					<div class='singleElement'>
-						<input type='text' class='key' size='4' value="price">
+						<input type='text' class='key' size='4' value="Price" disabled>
 						<input type='text' class='value' id="price">
 						<span class='delete'>Delete</span> <br>
 					</div>
