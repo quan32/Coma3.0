@@ -31,7 +31,7 @@ public class Coma {
 	static final String DB_URL = "jdbc:mysql://localhost/coma-project";
 	
 	static final String USER = "root";
-	static final String PASS = "1";
+	static final String PASS = "20092137";
 	
 	public static void main(String[] args){
 		Coma coma = new Coma();

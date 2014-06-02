@@ -128,13 +128,14 @@
 		font-weight:bold;
 		text-align:center;
 	}
-	.delete, .extend_one, .extend_more{
+	.delete, .extend, .extend_one, .extend_more{
 		text-decoration: none;
 		border: 1px solid;
 		color: green;
 		border-radius: 5px;
 		padding-left: 3px;
 		padding-right: 3px;
+		margin-right: 3px;
 		background-color: gainsboro;
 	}
 	#done,#back,#search{
@@ -164,7 +165,13 @@
 			//Neu la singleElement
 			if(elementLength == 0 ){
 				inputElement = element.children('input');
-				if(inputElement.length ==2 && inputElement.eq(0).val()!="price"){
+				if(inputElement.length ==1){
+					keyElement = inputElement.eq(0);
+					tag = "<xs:element name=\""+keyElement.val().replace(" ","")+"\" type=\"xs:string\"/>";
+					
+					return tag;
+				}
+				else if(inputElement.length ==2 && inputElement.eq(0).val()!="price"){
 					keyElement = inputElement.eq(0);
 					valueElement = inputElement.eq(1);
 					
@@ -223,6 +230,35 @@
 						  "</div>";
                   $(this).before(tag);
              });
+             $("#container").on('click','span.extend', function(){
+                 var tag="<div class='complexElement'>"+
+								"<fieldset>"+
+									"<legend>"+
+										"<input type='text' class='key' size='6'>"+
+									"</legend>"+
+				
+									"<div class='singleElement'>"+
+										"<input type='text' class='value'>"+
+										"<span class='delete'>Delete</span> <br>"+
+									"</div>"+
+									"<div class='singleElement'>"+
+										"<input type='text' class='value'>"+
+										"<span class='delete'>Delete</span> <br>"+
+									"</div>"+
+									"<div class='singleElement'>"+
+										"<input type='text' class='value'>"+
+										"<span class='delete'>Delete</span> <br>"+
+									"</div>"+
+							
+									"<span class='extend_one'>Extend one</span>"+
+									"<span class='extend'>Extend</span>"+
+									"<span class='extend_more'>Extend more</span>"+
+									"<span class='delete'>Delete</span>"+
+								"</fieldset>"+
+						  "</div>";
+
+                 $(this).prev().before(tag);
+            });
              $("#container").on('click','span.extend_more', function(){
                   var tag="<div class='complexElement'>"+
 								"<fieldset>"+
@@ -247,17 +283,19 @@
 									"</div>"+
 							
 									"<span class='extend_one'>Extend one</span>"+
+									"<span class='extend'>Extend</span>"+
 									"<span class='extend_more'>Extend more</span>"+
 									"<span class='delete'>Delete</span>"+
 								"</fieldset>"+
 						  "</div>";
 
-                  $(this).prev().before(tag);
+                  $(this).prev().prev().before(tag);
              });
 
               $("#done").click(function(){
                   $(".delete").hide();
                   $(".extend_one").hide();
+                  $(".extend").hide();
                   $(".extend_more").hide();
                   $("input").css("disabled","disabled");
                   $("#back").show();
@@ -271,6 +309,7 @@
                   $("#done").show();
                   $(".delete").show();
                   $(".extend_one").show();
+                  $(".extend").show();
                   $(".extend_more").show();
                   $("input").css("disabled","false");
               });
@@ -282,6 +321,7 @@
             	  
                   $(".delete").remove();
                   $(".extend_one").remove();
+                  $(".extend").remove();
                   $(".extend_more").remove();
                   $("br").remove();
                   
@@ -585,12 +625,14 @@
 							</div>
 					
 							<span class='extend_one'>Extend one</span>
+							<span class='extend'>Extend</span>
 							<span class='extend_more'>Extend more</span>
 							<span class='delete'>Delete</span>
 						</fieldset>
 					</div>
 
-					<span class='extend_one'>Extend one</span> 
+					<span class='extend_one'>Extend one</span>
+					<span class='extend'>Extend</span> 
 					<span class='extend_more'>Extend more</span>
 
 				
